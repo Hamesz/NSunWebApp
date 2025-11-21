@@ -134,7 +134,7 @@ const NSunsApp: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-2 sm:p-4">
       <div className="max-w-4xl mx-auto">
         <Header
           days={DAYS}
@@ -151,9 +151,9 @@ const NSunsApp: React.FC = () => {
           />
         )}
 
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-xl font-bold text-gray-800 mb-4">Training Maxes (kg)</h2>
-          <div className="grid grid-cols-2 gap-4">
+        <div className="bg-white rounded-lg shadow-md p-3 sm:p-6 mb-4 sm:mb-6">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Training Maxes (kg)</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
             {Object.entries(trainingMaxes).map(([lift, max]) => (
               <TrainingMaxEditor
                 key={lift}
@@ -169,9 +169,9 @@ const NSunsApp: React.FC = () => {
           </div>
         </div>
 
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <Calendar size={28} className="text-indigo-600" />
+        <div className="mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2 px-1">
+            <Calendar size={24} className="text-indigo-600 sm:w-7 sm:h-7" />
             {currentDay}'s Workout
           </h2>
           <WorkoutTier
@@ -196,7 +196,7 @@ const NSunsApp: React.FC = () => {
           />
         </div>
 
-        <div className="mt-6 text-center text-gray-500 text-sm">
+        <div className="mt-4 sm:mt-6 text-center text-gray-500 text-xs sm:text-sm px-2">
           <p>Track your modified nSuns program: Bench Press, OHP, Pull-ups & Abs • Weights in kg</p>
         </div>
       </div>
