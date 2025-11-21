@@ -23,9 +23,15 @@ const NSunsApp: React.FC = () => {
     StorageService.load('trainingMaxes', DEFAULT_TRAINING_MAXES)
   );
 
-  const [currentDay, setCurrentDay] = useState<DayName>('Monday');
-  const [completedSets, setCompletedSets] = useState<CompletedSets>({});
-  const [amrapReps, setAmrapReps] = useState<AmrapReps>({});
+  const [currentDay, setCurrentDay] = useState<DayName>(
+    StorageService.load('currentDay', 'Monday')
+  );
+  const [completedSets, setCompletedSets] = useState<CompletedSets>(
+    StorageService.load('completedSets', {})
+  );
+  const [amrapReps, setAmrapReps] = useState<AmrapReps>(
+    StorageService.load('amrapReps', {})
+  );
   const [editingMax, setEditingMax] = useState<string | null>(null);
   const [tempMax, setTempMax] = useState<string>('');
   const [showNotification, setShowNotification] = useState<boolean>(false);
@@ -34,6 +40,18 @@ const NSunsApp: React.FC = () => {
   useEffect(() => {
     StorageService.save('trainingMaxes', trainingMaxes);
   }, [trainingMaxes]);
+
+  useEffect(() => {
+    StorageService.save('currentDay', currentDay);
+  }, [currentDay]);
+
+  useEffect(() => {
+    StorageService.save('completedSets', completedSets);
+  }, [completedSets]);
+
+  useEffect(() => {
+    StorageService.save('amrapReps', amrapReps);
+  }, [amrapReps]);
 
   const toggleSet = (day: DayName, tier: TierType, setIndex: number): void => {
     const key = `${day}-${tier}-${setIndex}`;
